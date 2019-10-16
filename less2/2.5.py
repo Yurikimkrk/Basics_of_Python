@@ -8,25 +8,23 @@
 # Набор натуральных чисел можно задать в коде, например, my_list = [7, 5, 3, 3, 2].
 
 my_list = [95, 91, 91, 87, 84, 84, 84, 79, 72, 66, 44, 44, 12]
-rating = input("Enter the new rating element: ")
-while not rating.isdigit() or rating == "0":
-    print("rating its positive integer")
-    rating = input("Enter the new rating element: ")
-rating = int(rating)
-if rating in my_list:
-    doubles = [index for index, v in enumerate(my_list) if v == rating]
-    my_list.insert(doubles[-1] + 1, f"!{rating}!")
-else:
-    my_list.append(rating)
-    my_list.sort(reverse=True)
-print(my_list)
 
-# my_list = [7, 5, 3, 3, 2]
-# rating = input("Enter the new rating element: ")
-# while not rating.isdigit() or rating == "0":
-#     print("rating its positive integer")
-#     rating = input("Enter the new rating element: ")
-# rating = int(rating)
-# my_list.append(rating)
-# my_list.sort(reverse=True)
-# print(my_list)
+while True:
+    print(f"Curent rating: {my_list}")
+    rating = input("Enter the new rating element or Q to finish: ")
+    if rating == "Q":
+        print("End of program")
+        break
+    while not rating.isdigit() or rating == "0":
+        print("rating its positive integer")
+        rating = input("Enter the new rating element: ")
+    rating = int(rating)
+    if my_list.count(rating):
+        my_list.insert(my_list.index(rating) + my_list.count(rating), rating)
+    else:
+        for n, i in enumerate(my_list):
+            if rating > i:
+                my_list.insert(n, rating)
+                break
+        else:
+            my_list.append(rating)
