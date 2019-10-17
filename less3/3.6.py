@@ -14,9 +14,11 @@ def int_func(words):
             print("Lower latin script and spaces between!\n")
             words = input("Enter words with a space(lower latin script):\n")
             break
-    words_list = words.split()
-    for i in range(len(words_list)):
-        print(words_list[i][0].upper() + words_list[i][1:], end=" ")
+    words_list = (words.title()).split()
+    print(words_list)
+    # words_list = words.split()
+    # for i in range(len(words_list)):
+    #     print(words_list[i][0].upper() + words_list[i][1:], end=" ")
 
 
 int_func(input("Enter words with a space(lower latin script):\n"))
